@@ -13,11 +13,12 @@ passport.deserializeUser(function (id, fn) {
 });
 
 passport.use(new TwitterStrategy({
-    consumerKey: "nmbk1uqKB0rbWjBxrPv9iksEf",
-    consumerSecret: "QeBlJHanPy232ZbOhyPisfI8hLLUVMujXjuI7Sz0Ym4o6m7eGF",
+    consumerKey: "zFxHvdszgsA86cKElkWLxtUT",
+    consumerSecret: "V6fa3U4AFHLpHPG1q5oK7Icyg1JhwZpxGKGLiZ8U6k5zfuEdH",
     callbackURL: "http://127.0.0.1:3000/auth/twitter/callback"
   },
   function(accessToken, refreshToken, profile, done) {
+    console.dir(profile)
     User.findOrCreate({name: profile.displayName}, {name: profile.displayName,userid: profile.id}, function(err, user) {
       if (err) {
         console.log(err); 

@@ -16,7 +16,7 @@ var app = express();
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/node-passport-social', { useMongoClient: true })
+mongoose.connect('mongodb://localhost:27017')
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 
